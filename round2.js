@@ -60,4 +60,17 @@ function titleCase(str) {
 console.log(titleCase("welcome to kigali tech hub")) // Welcome To Kigali Tech Hub
 console.log(titleCase("hELLO wORLD"))                // Hello World
 console.log(titleCase(""))                           // "" (empty)
+function maskPhone(phone) {
+    if (typeof phone !== "string" || phone.length !== 10) return "Invalid"
+    if (phone[0] !== "0" || phone[1] !== "7") return "Invalid"
+    for (let i = 0; i < phone.length; i++) {
+        if (phone[i] < "0" || phone[i] > "9") return "Invalid"
+    }
+    return phone.slice(0, 3) + "****" + phone.slice(7)
+}
+console.log(maskPhone("0788123456")) // 078****456
+console.log(maskPhone("0688123456")) // Invalid
+console.log(maskPhone("078812345"))  // Invalid
+console.log(maskPhone("07881234ab")) // Invalid
+
 
