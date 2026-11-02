@@ -45,3 +45,19 @@ console.log(isPalindrome("Never odd or even"))                 // true
 console.log(isPalindrome("hello"))                             // false
 console.log(isPalindrome(""))                                  // true
 console.log(isPalindrome("A man, a plan, a canal: Panama"))
+
+function titleCase(str) {
+    let result = ""
+    for (let i = 0; i < str.length; i++) {
+        if (i === 0 || str[i - 1] === " ") {
+            result += str[i].toUpperCase()
+        } else {
+            result += str[i].toLowerCase()
+        }
+    }
+    return result
+}
+console.log(titleCase("welcome to kigali tech hub")) // Welcome To Kigali Tech Hub
+console.log(titleCase("hELLO wORLD"))                // Hello World
+console.log(titleCase(""))                           // "" (empty)
+
