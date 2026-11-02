@@ -23,3 +23,25 @@ function countChar(str, char) {
 console.log(countChar("Banana", "a")) // 3
 console.log(countChar("Kigali", "K")) // 1
 console.log(countChar("", "a"))       // 0
+
+function isPalindrome(str) {
+    let cleaned = ""
+    for (let i = 0; i < str.length; i++) {
+        const ch = str[i].toLowerCase()
+        const isLetter = ch >= "a" && ch <= "z"
+        const isDigit = ch >= "0" && ch <= "9"
+        if (isLetter || isDigit) cleaned += ch
+    }
+    let left = 0
+    let right = cleaned.length - 1
+    while (left < right) {
+        if (cleaned[left] !== cleaned[right]) return false
+        left++
+        right--
+    }
+    return true
+}
+console.log(isPalindrome("Never odd or even"))                 // true
+console.log(isPalindrome("hello"))                             // false
+console.log(isPalindrome(""))                                  // true
+console.log(isPalindrome("A man, a plan, a canal: Panama"))
