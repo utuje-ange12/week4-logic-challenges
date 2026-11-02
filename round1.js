@@ -83,4 +83,16 @@ console.log(getBMICategory(50, 1.8))  // Underweight
 console.log(getBMICategory(70, 1.75)) // Normal
 console.log(getBMICategory(85, 1.75)) // Overweight
 console.log(getBMICategory(100, 1.7)) // Obese
-console.log(getBMICategory(70, 0))    // Invalid input
+console.log(getBMICategory(70, 0))// Invalid input
+
+function motoFare(km) {
+    if (km <= 0) return 0
+    if (km <= 2) return 300
+    const extraKm = Math.ceil(km - 2)
+    return 300 + extraKm * 107
+}
+console.log(motoFare(1))   // 300
+console.log(motoFare(3))   // 407
+console.log(motoFare(2.5)) // 407
+console.log(motoFare(0))   // 0
+console.log(motoFare(-4))  // 0
