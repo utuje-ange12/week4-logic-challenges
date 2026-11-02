@@ -73,4 +73,22 @@ console.log(maskPhone("0688123456")) // Invalid
 console.log(maskPhone("078812345"))  // Invalid
 console.log(maskPhone("07881234ab")) // Invalid
 
+function longestWord(sentence) {
+    let best = ""
+    let current = ""
+    for (let i = 0; i <= sentence.length; i++) {
+        const ch = sentence[i]
+        if (i === sentence.length || ch === " ") {
+            if (current.length > best.length) best = current
+            current = ""
+        } else {
+            current += ch
+        }
+    }
+    return best
+}
+console.log(longestWord("I love Kigali tech")) // Kigali
+console.log(longestWord("aa bb cc"))           // aa
+console.log(longestWord(""))                   // "" (empty)
+console.log(longestWord("  spaced   out  "))   // spaced
 
