@@ -60,3 +60,34 @@ console.log(fibonacci(1)) // 0
 console.log(fibonacci(2)) // 0, 1
 console.log(fibonacci(0)) // "" (empty)
 
+function guessingGameSimulator(secret) {
+    if (!Number.isInteger(secret) || secret < 1 || secret > 100) {
+        console.log("Secret must be a whole number from 1 to 100")
+        return 0
+    }
+    let low = 1
+    let high = 100
+    let guesses = 0
+    while (low <= high) {
+        const guess = Math.floor((low + high) / 2)
+        guesses++
+        console.log("Guess " + guesses + ": " + guess)
+        if (guess === secret) return guesses
+        if (guess < secret) low = guess + 1
+        else high = guess - 1
+    }
+    return guesses
+}
+console.log("Took", guessingGameSimulator(50), "guesses")
+console.log("Took", guessingGameSimulator(1), "guesses")
+console.log("Took", guessingGameSimulator(100), "guesses")
+console.log("Took", guessingGameSimulator(0), "guesses")
+let worst = 0
+for (let s = 1; s <= 100; s++) {
+    const log = console.log
+    console.log = () => {}
+    const g = guessingGameSimulator(s)
+    console.log = log
+    if (g > worst) worst = g
+}
+console.log("Worst case over 1..100:", worst) // 7
