@@ -15,3 +15,17 @@ console.log(sumTo(0), sumToFormula(0))       // 0 0
 console.log(sumTo(-3), sumToFormula(-3))     // 0 0
 console.log("match:", sumTo(1000) === sumToFormula(1000)) // true
 
+function isPrime(n) {
+    if (n < 2) return false
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false
+    }
+    return true
+}
+console.log(isPrime(2))   // true
+console.log(isPrime(17))  // true
+console.log(isPrime(18))  // false
+console.log(isPrime(1))   // false
+console.log(isPrime(0))   // false
+console.log(isPrime(-7))  // false
+
