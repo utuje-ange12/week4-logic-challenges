@@ -43,3 +43,22 @@ console.log(romanNumeral(3999)) // MMMCMXCIX
 console.log(romanNumeral(0))    // Invalid
 console.log(romanNumeral(4000)) // Invalid
 
+function nationalIdCheck(id) {
+    if (typeof id !== "string" || id.length !== 16) return "ID must have exactly 16 digits"
+    for (let i = 0; i < id.length; i++) {
+        if (id[i] < "0" || id[i] > "9") return "ID must contain digits only"
+    }
+    if (id[0] !== "1") return "First digit must be 1"
+    const year = Number(id.slice(1, 5))
+    const currentYear = new Date().getFullYear()
+    if (year < 1900 || year > currentYear) return "Birth year (digits 2-5) must be between 1900 and " + currentYear
+    if (id[5] !== "7" && id[5] !== "8") return "Sixth digit must be 7 or 8"
+    return true
+}
+console.log(nationalIdCheck("1199680012345678")) // true
+console.log(nationalIdCheck("1199780012345678")) // true (year 1997)
+console.log(nationalIdCheck("119968001234567"))  // length message
+console.log(nationalIdCheck("2199680012345678")) // first digit
+console.log(nationalIdCheck("1189680012345678")) // year 1896
+console.log(nationalIdCheck("1199650012345678")) // 6th digit
+console.log(nationalIdCheck(""))                 // length message
