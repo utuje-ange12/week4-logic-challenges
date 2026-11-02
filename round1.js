@@ -71,3 +71,16 @@ console.log("---")
 changeMaker(0) // prints nothing
 console.log("--- 99:")
 changeMaker(99)
+function getBMICategory(weightKg, heightM) {
+    if (heightM <= 0 || weightKg <= 0) return "Invalid input"
+    const bmi = weightKg / (heightM * heightM)
+    if (bmi < 18.5) return "Underweight"
+    if (bmi < 25) return "Normal"
+    if (bmi < 30) return "Overweight"
+    return "Obese"
+}
+console.log(getBMICategory(50, 1.8))  // Underweight
+console.log(getBMICategory(70, 1.75)) // Normal
+console.log(getBMICategory(85, 1.75)) // Overweight
+console.log(getBMICategory(100, 1.7)) // Obese
+console.log(getBMICategory(70, 0))    // Invalid input
