@@ -96,3 +96,14 @@ console.log(motoFare(3))   // 407
 console.log(motoFare(2.5)) // 407
 console.log(motoFare(0))   // 0
 console.log(motoFare(-4))  // 0
+
+function convertSeconds(total) {
+    const hours = Math.floor(total / 3600)
+    const minutes = Math.floor((total % 3600) / 60)
+    const seconds = total % 60
+    return hours + "h " + String(minutes).padStart(2, "0") + "m " + String(seconds).padStart(2, "0") + "s"
+}
+console.log(convertSeconds(7509)) // 2h 05m 09s
+console.log(convertSeconds(59))   // 0h 00m 59s
+console.log(convertSeconds(0))    // 0h 00m 00s
+console.log(convertSeconds(3600)) // 1h 00m 00s
