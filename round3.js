@@ -43,3 +43,20 @@ printPyramid(1)
 console.log("--")
 printPyramid(0) // prints nothing
 
+function fibonacci(n) {
+    let result = ""
+    let prev = 0
+    let curr = 1
+    for (let i = 0; i < n; i++) {
+        result += (i === 0 ? "" : ", ") + prev
+        const next = prev + curr
+        prev = curr
+        curr = next
+    }
+    return result
+}
+console.log(fibonacci(8)) // 0, 1, 1, 2, 3, 5, 8, 13
+console.log(fibonacci(1)) // 0
+console.log(fibonacci(2)) // 0, 1
+console.log(fibonacci(0)) // "" (empty)
+
