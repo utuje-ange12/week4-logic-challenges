@@ -92,3 +92,25 @@ console.log(longestWord("aa bb cc"))           // aa
 console.log(longestWord(""))                   // "" (empty)
 console.log(longestWord("  spaced   out  "))   // spaced
 
+function compress(str) {
+    if (str === "") return ""
+    let result = ""
+    let currentChar = str[0]
+    let count = 1
+    for (let i = 1; i < str.length; i++) {
+        if (str[i] === currentChar) {
+            count++
+        } else {
+            result += currentChar + count
+            currentChar = str[i]
+            count = 1
+        }
+    }
+    result += currentChar + count
+    return result
+}
+console.log(compress("aaabccdddd")) // a3b1c2d4
+console.log(compress("a"))          // a1
+console.log(compress(""))           // "" (empty)
+
+
