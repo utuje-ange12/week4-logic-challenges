@@ -29,3 +29,17 @@ console.log(isPrime(1))   // false
 console.log(isPrime(0))   // false
 console.log(isPrime(-7))  // false
 
+function printPyramid(rows) {
+    for (let r = 1; r <= rows; r++) {
+        let line = ""
+        for (let s = 0; s < rows - r; s++) line += " "
+        for (let k = 0; k < 2 * r - 1; k++) line += "*"
+        console.log(line)
+    }
+}
+printPyramid(4)
+console.log("--")
+printPyramid(1)
+console.log("--")
+printPyramid(0) // prints nothing
+
